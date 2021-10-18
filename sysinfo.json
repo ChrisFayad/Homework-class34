@@ -1,0 +1,46 @@
+{
+  "node": "v14.18.0",
+  "system": {
+    "manufacturer": "ASUSTeK COMPUTER INC.",
+    "model": "GL752VW"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i7-6700HQ",
+    "speed": 2.6
+  },
+  "memory": "16 GB",
+  "osInfo": {
+    "platform": "linux",
+    "distro": "LinuxMint",
+    "release": "20.1"
+  },
+  "vscodeInfo": {
+    "version": "1.61.0",
+    "extensions": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "hdg.live-html-previewer",
+      "ms-azuretools.vscode-docker",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ms-vscode-remote.remote-containers",
+      "nhoizey.gremlins",
+      "PKief.material-icon-theme",
+      "ritwickdey.LiveServer",
+      "shd101wyy.markdown-preview-enhanced",
+      "streetsidesoftware.code-spell-checker"
+    ],
+    "userSettings": {
+      "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+      },
+      "python.pythonPath": "/usr/bin/python3",
+      "editor.formatOnSave": true,
+      "workbench.iconTheme": "material-icon-theme"
+    }
+  }
+}

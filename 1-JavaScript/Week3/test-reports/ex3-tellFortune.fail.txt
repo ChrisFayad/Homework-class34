@@ -1,0 +1,4 @@
+
+*** Spell Checker Report ***
+
+ex3-tellFortune.js:35:44 - Unknown word (Levon)
