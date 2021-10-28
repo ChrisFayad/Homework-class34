@@ -40,7 +40,7 @@ function test1() {
 
 function test2() {
   console.log('\nTest 2: return correct output when passed cartForParty');
-  console.log(calculateTotalPrice(cartForParty));
+  console.assert(calculateTotalPrice(cartForParty));
 }
 
 function test() {

@@ -33,9 +33,10 @@ const employeeRecords = [
 function filterPrivateData(employeeRecords) {
   const newEmployeeRecords = [];
   employeeRecords.forEach(element => {
-    newEmployeeRecords.push(({name: element.name, occupation: element.occupation, email: element.email}));
+    const { name, occupation, email } = element
+    newEmployeeRecords.push(({ name, occupation, email }))
   });
-  return newEmployeeRecords;
+  return newEmployeeRecords
 }
 
 // ! Test functions (plain vanilla JavaScript)
