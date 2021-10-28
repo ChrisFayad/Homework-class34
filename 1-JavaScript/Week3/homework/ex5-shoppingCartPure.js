@@ -17,14 +17,13 @@ it pure. Do the following:
 ------------------------------------------------------------------------------*/
 // ! Function under test
 function addToShoppingCart(shoppingCart, item) {
-  if (item !== undefined) {
-    if (shoppingCart.length < 3) {
-      shoppingCart.push(item);
-    } else {
-      shoppingCart.shift();
-      shoppingCart.push(item);
+  if (typeof item === "string") {
+    const newShoppingCart = [...shoppingCart]
+    newShoppingCart.push(item);
+    if (newShoppingCart.length > 3) {
+      newShoppingCart.shift();
     }
-    return [...shoppingCart];
+    return newShoppingCart;
   }
 }
 
@@ -56,6 +55,7 @@ function test4() {
   console.log('Test 4: `waffles` should be added');
   const initialCart = ['bananas', 'milk', 'chocolate'];
   const result = addToShoppingCart(initialCart, 'waffles');
+  console.log(result)
   console.assert(result.length === 3);
   console.assert(result.includes('waffles'));
 }
