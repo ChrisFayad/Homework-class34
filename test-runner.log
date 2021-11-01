@@ -49,3 +49,466 @@ ex4-shoppingCart.js
 2021-10-15 06:01:33 info: -------------------------------------------
 2021-10-15 06:01:33 warn: A unit test file was not provided.
 2021-10-15 06:01:35 info: All steps were completed successfully
+2021-11-01 07:18:06 info: ----------------------------------------
+2021-11-01 07:18:06 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-11-01 07:18:06 info: ----------------------------------------
+2021-11-01 07:18:11 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-bookList.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex1-bookList.test.js
+  Generated HTML
+    ✕ HTML should be syntactically valid (86 ms)
+    ✓ should contain a <ul> that is a child of <div id="bookList"> (2 ms)
+    ✓ should contain a <ul> with 3 <li> elements (1 ms)
+    ✓ should contain an <li> with title and author for each book of the `myBooks` array (1 ms)
+    ✓ should contain an <img> element for each book (1 ms)
+
+  ● Generated HTML › HTML should be syntactically valid
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "
+    inline
+      10:284  error  <img> is missing required \"alt\" attribute  wcag/h37
+      10:515  error  <img> is missing required \"alt\" attribute  wcag/h37
+      10:737  error  <img> is missing required \"alt\" attribute  wcag/h37·
+    ✖ 3 problems (3 errors, 0 warnings)·
+    More information:
+      https://html-validate.org/rules/wcag/h37.html·
+    "
+
+      44 |   const report = htmlValidate.validateString(htmlText);
+      45 |   const validationReport = stylish(report);
+    > 46 |   expect(validationReport).toBe('');
+         |                            ^
+      47 | }
+      48 |
+      49 | module.exports = {
+
+      at validateHTML (test-runner/jsdom-helpers.js:46:28)
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex1-bookList.test.js:39:5)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 4 passed, 5 total
+Snapshots:   0 total
+Time:        3.561 s
+Ran all test suites matching /ex1-bookList.test.js/i.
+
+2021-11-01 07:22:48 info: ----------------------------------------
+2021-11-01 07:22:48 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-11-01 07:22:48 info: ----------------------------------------
+2021-11-01 07:22:52 info: All unit tests passed.
+2021-11-01 07:22:54 info: All steps were completed successfully
+2021-11-01 07:23:20 info: ---------------------------------------
+2021-11-01 07:23:20 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-11-01 07:23:20 info: ---------------------------------------
+2021-11-01 07:23:24 info: All unit tests passed.
+2021-11-01 07:23:26 info: All steps were completed successfully
+2021-11-01 07:23:47 info: ------------------------------------------
+2021-11-01 07:23:47 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-11-01 07:23:47 info: ------------------------------------------
+2021-11-01 07:23:48 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-hijackLogo.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js
+  hijackLogo
+    ✕ should have all TODO comments removed (8 ms)
+    ✕ should set the `src` property
+    ✕ should set the `srcset` property (1 ms)
+
+  ● hijackLogo › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      113 |
+      114 | function checkTodos(source) {
+    > 115 |   expect(source.includes('TODO')).toBeFalsy();
+          |                                   ^
+      116 | }
+      117 |
+      118 | module.exports = {
+
+      at checkTodos (test-runner/unit-test-helpers.js:115:35)
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:28:55)
+
+  ● hijackLogo › should set the `src` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      29 |
+      30 |   test('should set the `src` property', () => {
+    > 31 |     expect(state.src).toBeDefined();
+         |                       ^
+      32 |   });
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:31:23)
+
+  ● hijackLogo › should set the `srcset` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+    > 35 |     expect(state.srcset).toBeDefined();
+         |                          ^
+      36 |   });
+      37 | });
+      38 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:35:26)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.853 s
+Ran all test suites matching /ex3-hijackLogo.test.js/i.
+
+2021-11-01 07:23:50 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:12:57 - Unknown word (Xdpd)
+
+2021-11-01 07:24:15 info: ------------------------------------------
+2021-11-01 07:24:15 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-11-01 07:24:15 info: ------------------------------------------
+2021-11-01 07:24:16 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-hijackLogo.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js
+  hijackLogo
+    ✓ should have all TODO comments removed (1 ms)
+    ✕ should set the `src` property (2 ms)
+    ✕ should set the `srcset` property (1 ms)
+
+  ● hijackLogo › should set the `src` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      29 |
+      30 |   test('should set the `src` property', () => {
+    > 31 |     expect(state.src).toBeDefined();
+         |                       ^
+      32 |   });
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:31:23)
+
+  ● hijackLogo › should set the `srcset` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+    > 35 |     expect(state.srcset).toBeDefined();
+         |                          ^
+      36 |   });
+      37 | });
+      38 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:35:26)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        0.726 s, estimated 1 s
+Ran all test suites matching /ex3-hijackLogo.test.js/i.
+
+2021-11-01 07:24:18 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:11:58 - Unknown word (Xdpd)
+
+2021-11-01 07:27:02 info: ------------------------------------------
+2021-11-01 07:27:02 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-11-01 07:27:02 info: ------------------------------------------
+2021-11-01 07:27:03 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-hijackLogo.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js
+  hijackLogo
+    ✓ should have all TODO comments removed (2 ms)
+    ✕ should set the `src` property (1 ms)
+    ✕ should set the `srcset` property
+
+  ● hijackLogo › should set the `src` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      29 |
+      30 |   test('should set the `src` property', () => {
+    > 31 |     expect(state.src).toBeDefined();
+         |                       ^
+      32 |   });
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:31:23)
+
+  ● hijackLogo › should set the `srcset` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+    > 35 |     expect(state.srcset).toBeDefined();
+         |                          ^
+      36 |   });
+      37 | });
+      38 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:35:26)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        0.714 s, estimated 1 s
+Ran all test suites matching /ex3-hijackLogo.test.js/i.
+
+2021-11-01 07:27:05 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:11:58 - Unknown word (Xdpd)
+
+2021-11-01 07:27:42 info: --------------------------------------------
+2021-11-01 07:27:42 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-11-01 07:27:42 info: --------------------------------------------
+2021-11-01 07:27:48 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-whatsTheTime.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js
+  whatsTheTime
+    ✓ HTML should be syntactically valid (83 ms)
+    ✕ should have all TODO comments removed (10 ms)
+    ✓ should use `setInterval()` (1 ms)
+    ✓ should not call `setInterval()` more than once (2001 ms)
+    ✓ should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event
+    ✕ `window.onload` or `window.addEventListener` should not call its event handler function (1 ms)
+
+  ● whatsTheTime › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      113 |
+      114 | function checkTodos(source) {
+    > 115 |   expect(source.includes('TODO')).toBeFalsy();
+          |                                   ^
+      116 | }
+      117 |
+      118 | module.exports = {
+
+      at checkTodos (test-runner/unit-test-helpers.js:115:35)
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js:44:55)
+
+  ● whatsTheTime › `window.onload` or `window.addEventListener` should not call its event handler function
+
+    expect(received).not.toBeDefined()
+
+    Received: true
+
+      62 |
+      63 |   test('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
+    > 64 |     expect(state.callError).not.toBeDefined();
+         |                                 ^
+      65 |   });
+      66 | });
+      67 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js:64:33)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 4 passed, 6 total
+Snapshots:   0 total
+Time:        4.957 s
+Ran all test suites matching /ex4-whatsTheTime.test.js/i.
+
+2021-11-01 07:28:31 info: --------------------------------------------
+2021-11-01 07:28:31 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-11-01 07:28:31 info: --------------------------------------------
+2021-11-01 07:28:36 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-whatsTheTime.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js
+  whatsTheTime
+    ✓ HTML should be syntactically valid (72 ms)
+    ✓ should have all TODO comments removed (1 ms)
+    ✓ should use `setInterval()`
+    ✓ should not call `setInterval()` more than once (2001 ms)
+    ✓ should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event
+    ✕ `window.onload` or `window.addEventListener` should not call its event handler function (3 ms)
+
+  ● whatsTheTime › `window.onload` or `window.addEventListener` should not call its event handler function
+
+    expect(received).not.toBeDefined()
+
+    Received: true
+
+      62 |
+      63 |   test('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
+    > 64 |     expect(state.callError).not.toBeDefined();
+         |                                 ^
+      65 |   });
+      66 | });
+      67 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js:64:33)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        4.805 s, estimated 5 s
+Ran all test suites matching /ex4-whatsTheTime.test.js/i.
+
+2021-11-01 07:29:22 info: --------------------------------------------
+2021-11-01 07:29:22 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-11-01 07:29:22 info: --------------------------------------------
+2021-11-01 07:29:27 info: All unit tests passed.
+2021-11-01 07:29:28 error: *** ESLint Report ***
+
+ex4-whatsTheTime/index.js
+  20:33  error  'event' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-11-01 07:30:01 info: --------------------------------------------
+2021-11-01 07:30:01 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-11-01 07:30:01 info: --------------------------------------------
+2021-11-01 07:30:07 info: All unit tests passed.
+2021-11-01 07:30:09 info: All steps were completed successfully
+2021-11-01 07:30:28 info: ---------------------------------------
+2021-11-01 07:30:28 info: >>> Running Unit Test `ex5-catWalk` <<<
+2021-11-01 07:30:28 info: ---------------------------------------
+2021-11-01 07:30:32 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex5-catWalk.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex5-catWalk.test.js
+  catWalk
+    ✓ HTML should be syntactically valid (68 ms)
+    ✕ should have all TODO comments removed (9 ms)
+    ✓ should use `setInterval()` and/or `setTimeout()` (1 ms)
+    ✓ should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event
+    ✕ `window.onload` or `window.addEventListener` should not call its event handler function
+
+  ● catWalk › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      113 |
+      114 | function checkTodos(source) {
+    > 115 |   expect(source.includes('TODO')).toBeFalsy();
+          |                                   ^
+      116 | }
+      117 |
+      118 | module.exports = {
+
+      at checkTodos (test-runner/unit-test-helpers.js:115:35)
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex5-catWalk.test.js:40:55)
+
+  ● catWalk › `window.onload` or `window.addEventListener` should not call its event handler function
+
+    expect(received).not.toBeDefined()
+
+    Received: true
+
+      49 |
+      50 |   test('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
+    > 51 |     expect(state.callError).not.toBeDefined();
+         |                                 ^
+      52 |   });
+      53 | });
+      54 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex5-catWalk.test.js:51:33)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 3 passed, 5 total
+Snapshots:   0 total
+Time:        2.959 s
+Ran all test suites matching /ex5-catWalk.test.js/i.
+
+2021-11-01 07:31:19 info: ---------------------------------------
+2021-11-01 07:31:19 info: >>> Running Unit Test `ex5-catWalk` <<<
+2021-11-01 07:31:19 info: ---------------------------------------
+2021-11-01 07:31:23 info: All unit tests passed.
+2021-11-01 07:31:25 info: All steps were completed successfully
+2021-11-01 07:31:47 info: ------------------------------------------
+2021-11-01 07:31:47 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-11-01 07:31:47 info: ------------------------------------------
+2021-11-01 07:31:49 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-hijackLogo.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js
+  hijackLogo
+    ✓ should have all TODO comments removed (1 ms)
+    ✕ should set the `src` property (2 ms)
+    ✕ should set the `srcset` property
+
+  ● hijackLogo › should set the `src` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      29 |
+      30 |   test('should set the `src` property', () => {
+    > 31 |     expect(state.src).toBeDefined();
+         |                       ^
+      32 |   });
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:31:23)
+
+  ● hijackLogo › should set the `srcset` property
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      33 |
+      34 |   test('should set the `srcset` property', () => {
+    > 35 |     expect(state.srcset).toBeDefined();
+         |                          ^
+      36 |   });
+      37 | });
+      38 |
+
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js:35:26)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        0.738 s, estimated 1 s
+Ran all test suites matching /ex3-hijackLogo.test.js/i.
+
+2021-11-01 07:31:51 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:11:58 - Unknown word (Xdpd)
+
+2021-11-01 07:37:23 info: ------------------------------------------
+2021-11-01 07:37:23 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-11-01 07:37:23 info: ------------------------------------------
+2021-11-01 07:37:24 info: All unit tests passed.
+2021-11-01 07:37:26 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:11:58 - Unknown word (Xdpd)
+
