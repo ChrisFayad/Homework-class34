@@ -24,7 +24,7 @@ const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
 function addToShoppingCart(item) {
-  if (typeof item === 'string') {
+  if (typeof item === 'string' && item !== '' || item.length > 0) {
     shoppingCart.push(item);
     if (shoppingCart.length > 3) {
       shoppingCart.shift();
