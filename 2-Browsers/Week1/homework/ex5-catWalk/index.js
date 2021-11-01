@@ -1,4 +1,5 @@
 'use strict';
+
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Browsers/Week1#exercise-5-the-cat-walk
 
@@ -23,6 +24,42 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 -----------------------------------------------------------------------------*/
 function catWalk() {
   // TODO complete this function
+  const imgElement = document.querySelector('img');
+  const windowWidth = window.innerWidth;
+  function catInterval() {
+    imgElement.style.left = '0px';
+    let move = 0;
+    let walkingInterval = setInterval(function(){
+       if (imgElement.style.left !== `${windowWidth/2}px` || imgElement.style.left !== `${windowWidth}px`) {
+         move += 10;
+       }
+       if (imgElement.style.left === `${windowWidth/2}px`) {
+         clearInterval(walkingInterval);
+         imgElement.setAttribute('src', 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif');
+         setTimeout(function(){
+           imgElement.setAttribute('src', 'http://www.anniemation.com/clip_art/images/cat-walk.gif');
+
+           walkingInterval = setInterval(function(){
+             if (imgElement.getAttribute('src') === 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif') {
+               const catPos = windowWidth/2;
+               imgElement.style.left = `${catPos}px`;
+             } else {
+               move += 10;
+               imgElement.style.left = `${move}px`;
+               if (imgElement.style.left === `${windowWidth}px`) {
+                 move = 0;
+               }
+             }
+           }, 50);
+
+        }, 5000);
+       }
+      imgElement.style.left = `${move}px`;
+        }, 50);
+      }
+      catInterval();
+      setInterval(catInterval, 15000);
 }
 
 // TODO execute `catWalk` when the browser has completed loading the page
+window.addEventListener('load', catWalk())
