@@ -39,33 +39,42 @@ const myBooks = [
 ];
 
 function createBookList(books) {
-  // TODO your code goes in here, return the ul element
   const ul = document.createElement('ul');
-  ul.style.listStyle = 'none';
-  ul.style.display = 'flex';
-  ul.style.flexWrap = 'wrap';
-  ul.style.padding = '20px';
-  ul.style.width = 'calc(100% - 41px)';
+  ul.style.cssText = `
+    list-Style: none;
+    display: flex;
+    flex-Wrap: wrap;
+    padding: 20px;
+    width: calc(100% - 41px);
+  `;
   books.forEach(book => {
-    const li = ul.appendChild(document.createElement('li'));
-    li.style.width = 'calc(25% - 51px)';
-    li.style.margin = '15px';
-    li.style.padding = '10px';
-    li.style.minWidth = '350px';
+    const li = document.createElement('li');
+    ul.appendChild(li);
+    li.style.cssText = `
+      width: calc(25% - 51px);
+      margin: 15px;
+      padding: 10px;
+      min-Width: 350px;
+    `;
     const p = li.appendChild(document.createElement('p'));
     p.textContent = `${book.title} - ${book.author}`;
     const img = li.appendChild(document.createElement('img'));
     img.style.width = '45%';
-    if (book.title === "The Design of Everyday Things") {
-      img.setAttribute('src', 'assets/the_design_of_everyday_things.jpg');
-      img.setAttribute('alt', 'The Design of Everyday Things Cover');
-    }
-    else if (book.title === "The Most Human Human") {
-      img.setAttribute('src', 'assets/the_most_human_human.jpg');
-      img.setAttribute('alt', 'The Most Human Human Cover');
-    } else {
-      img.setAttribute('src', 'assets/the_pragmatic_programmer.jpg');
-      img.setAttribute('alt', 'The Pragmatic Programmer Cover');
+    switch (book.isbn) {
+      case '978-0465050659':
+        img.setAttribute('src', 'assets/the_design_of_everyday_things.jpg');
+        img.setAttribute('alt', 'The Design of Everyday Things Cover');
+        break;
+      case '978-1617933431':
+        img.setAttribute('src', 'assets/the_most_human_human.jpg');
+        img.setAttribute('alt', 'The Most Human Human Cover');
+        break;
+      case '978-0201616224':
+        img.setAttribute('src', 'assets/the_pragmatic_programmer.jpg');
+        img.setAttribute('alt', 'The Pragmatic Programmer Cover');
+        break;
+      default:
+        break;
     }
     if (book.alreadyRead === true) {
       li.style.backgroundColor = 'green';
