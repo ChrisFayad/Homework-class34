@@ -23,41 +23,36 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
 function catWalk() {
+  document.body.style.overflowX = "hidden";
   const imgElement = document.querySelector('img');
-  const windowWidth = window.innerWidth;
-  function catInterval() {
-    imgElement.style.left = '0px';
-    let move = 0;
-    let walkingInterval = setInterval(function () {
-      if (imgElement.style.left !== `${windowWidth / 2}px` || imgElement.style.left !== `${windowWidth}px`) {
-        move += 10;
-      }
-      if (imgElement.style.left === `${windowWidth / 2}px`) {
+  let move = 0;
+  const catWidth = 300;
+  imgElement.style.width = `${catWidth}px`;
+  imgElement.style.left = `${move}px`;
+
+  let walkingInterval = setInterval(walkingCat, 50);
+
+  function walkingCat() {
+    const windowWidth = parseInt(window.innerWidth);
+    const halfWay = parseInt(windowWidth / 2);
+
+    if ((move + catWidth) === halfWay || (move + catWidth) >= halfWay && (move + catWidth) <= (halfWay + 10)){
+        imgElement.src = 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
         clearInterval(walkingInterval);
-        imgElement.setAttribute('src', 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif');
-        setTimeout(function () {
-          imgElement.setAttribute('src', 'http://www.anniemation.com/clip_art/images/cat-walk.gif');
-
-          walkingInterval = setInterval(function () {
-            if (imgElement.getAttribute('src') === 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif') {
-              const catPos = windowWidth / 2;
-              imgElement.style.left = `${catPos}px`;
-            } else {
-              move += 10;
-              imgElement.style.left = `${move}px`;
-              if (imgElement.style.left === `${windowWidth}px`) {
-                move = 0;
-              }
-            }
-          }, 50);
-
+        window.setTimeout(function(){
+          move += 10;
+          imgElement.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+          walkingInterval = setInterval(walkingCat, 50);
         }, 5000);
-      }
-      imgElement.style.left = `${move}px`;
-    }, 50);
+    }
+    else if (move === windowWidth){
+      move = 0;
+    }
+    else {
+      move += 10;
+    }
+    imgElement.style.left = `${move}px`;
   }
-  catInterval();
-  setInterval(catInterval, 15000);
 }
 
 window.addEventListener('load', () => {
