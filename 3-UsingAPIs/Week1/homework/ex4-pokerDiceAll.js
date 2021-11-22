@@ -27,9 +27,11 @@ exercise file.
 const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
-  // TODO Refactor this function
   const dices = [1, 2, 3, 4, 5];
-  return rollDice(1);
+  const dicePromises = dices.map((dice) => {
+    return rollDice(dice);
+  });
+  return Promise.all(dicePromises);
 }
 
 rollTheDices()
@@ -38,3 +40,35 @@ rollTheDices()
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
+
+// My Explanation
+
+/*
+  Because inside the pokerDiceRoller.js we can see that rollOnce function
+  contain the following code:
+
+  // If the dice rolls of the table we reject the promise (but that
+  // doesn't stop the dice from completing it course).
+  if (roll > OFF_TABLE_AFTER) {
+    if (!offTable) {
+      logStamped(`Dice ${dice} continues rolling on the floor...`);
+      offTable = true;
+    }
+    reject(new Error(`Dice ${dice} rolled off the table.\n`));
+  }
+  
+  the reason why it continue to roll because it's still less than
+  randomRollsToDo value, as the code below shows:
+
+  // If the dice has more rolls to do, schedule execution of the next roll.
+  if (roll < randomRollsToDo) {
+    setTimeout(() => rollOnce(roll + 1), rollTime);
+  }
+  
+  Plus, we are using Promise.all which means when one or more of the promises
+  get rejected we only get the error of the first promise that got rejected
+  which means when the rest or the dices aka other promises continue rolling
+  until they reach the randomRollsToDo they might settle and might not but in
+  either way we only get one reject message describing the first promise that
+  failed.
+*/
