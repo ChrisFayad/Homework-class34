@@ -16,11 +16,12 @@ const getAnonName = (firstName) => {
       }
       const fullName = `${firstName} Doe`;
       resolve(fullName);
+      console.log(fullName);
     }, 1000);
   });
 };
 
-getAnonName('John', console.log);
+getAnonName('John');
 
 // ! Do not change or remove the code below
 module.exports = getAnonName;
