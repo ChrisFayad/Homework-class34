@@ -14,12 +14,10 @@ Complete the function called `checkDoubleDigits` such that:
 ------------------------------------------------------------------------------*/
 function checkDoubleDigits(passedNumber) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
       if (passedNumber >=10 && passedNumber <= 99) {
         resolve("This is a double digit number!");
       }
       reject(new Error(`Expected a double digit number but got ${passedNumber}`));
-    }, 1000);
   });
 }
 
