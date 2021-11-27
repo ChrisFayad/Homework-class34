@@ -98,3 +98,8 @@ Ran all test suites matching /ex3-rollDice.test.js/i.
 2021-11-25 05:41:42 info: ---------------------------------------
 2021-11-25 05:41:45 info: All unit tests passed.
 2021-11-25 05:41:47 info: All steps were completed successfully
+2021-11-27 11:04:03 info: ---------------------------------------
+2021-11-27 11:04:03 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-11-27 11:04:03 info: ---------------------------------------
+2021-11-27 11:04:06 info: All unit tests passed.
+2021-11-27 11:04:08 info: All steps were completed successfully
