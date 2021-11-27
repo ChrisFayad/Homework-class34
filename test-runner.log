@@ -161,3 +161,124 @@ Ran all test suites matching /ex2-pokemonApp.test.js/i.
 2021-11-27 10:53:34 info: ------------------------------------------
 2021-11-27 10:53:38 info: All unit tests passed.
 2021-11-27 10:53:40 info: All steps were completed successfully
+2021-11-27 01:15:57 info: -----------------------------------------
+2021-11-27 01:15:57 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-27 01:15:57 info: -----------------------------------------
+2021-11-27 01:15:59 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.js --colors
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js
+  ex3-rollAnAce
+    ✓ should have all TODO comments removed (1 ms)
+    ✓ should not include a recursive call
+    ✓ should use async/wait
+    ✓ should use try/catch
+    ✓ should resolve as soon as a dice settles on an ACE (2 ms)
+    ✕ should reject with an Error when a dice rolls off the table (2 ms)
+
+  ● ex3-rollAnAce › should reject with an Error when a dice rolls off the table
+
+    expect.assertions(3)
+
+    Expected three assertions to be called but received two assertion calls.
+
+      101 |
+      102 |   test('should reject with an Error when a dice rolls off the table', async () => {
+    > 103 |     expect.assertions(3);
+          |            ^
+      104 |     expect(exported).toBeDefined();
+      105 |
+      106 |     const logSpy = jest.spyOn(console, 'log').mockImplementation();
+
+      at Object.<anonymous> (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js:103:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        1.267 s
+Ran all test suites matching /ex3-rollAnAce.test.js/i.
+
+2021-11-27 01:23:22 info: -----------------------------------------
+2021-11-27 01:23:22 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-27 01:23:22 info: -----------------------------------------
+2021-11-27 01:23:24 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.js --colors
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js
+  ex3-rollAnAce
+    ✓ should have all TODO comments removed (1 ms)
+    ✓ should not include a recursive call (1 ms)
+    ✓ should use async/wait
+    ✓ should use try/catch
+    ✓ should resolve as soon as a dice settles on an ACE (2 ms)
+    ✕ should reject with an Error when a dice rolls off the table (10 ms)
+
+  ● ex3-rollAnAce › should reject with an Error when a dice rolls off the table
+
+    expect.assertions(3)
+
+    Expected three assertions to be called but received two assertion calls.
+
+      101 |
+      102 |   test('should reject with an Error when a dice rolls off the table', async () => {
+    > 103 |     expect.assertions(3);
+          |            ^
+      104 |     expect(exported).toBeDefined();
+      105 |
+      106 |     const logSpy = jest.spyOn(console, 'log').mockImplementation();
+
+      at Object.<anonymous> (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js:103:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        0.903 s, estimated 1 s
+Ran all test suites matching /ex3-rollAnAce.test.js/i.
+
+2021-11-27 01:31:44 info: -----------------------------------------
+2021-11-27 01:31:44 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-27 01:31:44 info: -----------------------------------------
+2021-11-27 01:31:46 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.js --colors
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js
+  ex3-rollAnAce
+    ✓ should have all TODO comments removed (1 ms)
+    ✓ should not include a recursive call (1 ms)
+    ✓ should use async/wait
+    ✓ should use try/catch
+    ✓ should resolve as soon as a dice settles on an ACE (1 ms)
+    ✕ should reject with an Error when a dice rolls off the table (2 ms)
+
+  ● ex3-rollAnAce › should reject with an Error when a dice rolls off the table
+
+    expect.assertions(3)
+
+    Expected three assertions to be called but received two assertion calls.
+
+      101 |
+      102 |   test('should reject with an Error when a dice rolls off the table', async () => {
+    > 103 |     expect.assertions(3);
+          |            ^
+      104 |     expect(exported).toBeDefined();
+      105 |
+      106 |     const logSpy = jest.spyOn(console, 'log').mockImplementation();
+
+      at Object.<anonymous> (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js:103:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        0.896 s, estimated 1 s
+Ran all test suites matching /ex3-rollAnAce.test.js/i.
+
+2021-11-27 01:40:15 info: -----------------------------------------
+2021-11-27 01:40:15 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-27 01:40:15 info: -----------------------------------------
+2021-11-27 01:40:16 info: All unit tests passed.
+2021-11-27 01:40:19 info: All steps were completed successfully
+2021-11-27 01:40:35 info: -----------------------------------------
+2021-11-27 01:40:35 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-27 01:40:35 info: -----------------------------------------
+2021-11-27 01:40:37 info: All unit tests passed.
+2021-11-27 01:40:39 info: All steps were completed successfully
