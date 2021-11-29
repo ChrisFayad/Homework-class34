@@ -13,19 +13,36 @@ Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-Usin
 // ! Do not remove this line
 const rollDice = require('../../helpers/pokerDiceRoller');
 
-function rollTheDices() {
+async function rollTheDices() {
   const dices = [1, 2, 3, 4, 5];
-  // TODO complete this function; use Promise.race() and rollDice()
+  const dicePromises = dices.map((dice) => {
+    return rollDice(dice);
+  });
+  try {
+    const raceValue = await Promise.race(dicePromises);
+    console.log('Resolved!', raceValue);
+    return raceValue;
+  }
+  catch(error) {
+    throw new Error('Rejected!', error.message);
+  }
+  
 }
 
 // Refactor this function to use async/await and try/catch
 function main() {
-  rollTheDices()
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
+  rollTheDices();
 }
 
 main();
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
+
+// My Explanation
+
+/*
+  Because we are using Promise.race() which return & resolve when the first
+  Promise of the array Promises resolve but the code still run for the other
+  promises, we just don't care about if they resolved or not.
+*/
