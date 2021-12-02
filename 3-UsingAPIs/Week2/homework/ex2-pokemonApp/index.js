@@ -26,9 +26,6 @@ async function fetchData(url) {
   try {
         const fetchedData = await fetch(url);
         const jsonData = await fetchedData.json();
-        if (url === 'https://pokeapi.co/api/v2/pokemon/?limit=151') {
-          fetchAndPopulatePokemons(jsonData);
-        }
         return jsonData;
   }
   catch(error) {
@@ -36,7 +33,12 @@ async function fetchData(url) {
   }
 }
 
-function fetchAndPopulatePokemons(jsonData) {
+async function fetchAndPopulatePokemons(url) {
+  const buttonElement = document.createElement('button');
+  buttonElement.setAttribute('type', 	'button');
+  buttonElement.textContent = 'Get Pokemon!';
+  buttonElement.addEventListener('click', async () => {
+  const jsonData = await fetchData(url);
   const selectElement = document.createElement('select');
   selectElement.id = 'pokemonList';
   jsonData.results.forEach(pokemon => {
@@ -44,12 +46,12 @@ function fetchAndPopulatePokemons(jsonData) {
     optionElement.value = pokemon.url;
     optionElement.textContent = pokemon.name;
     selectElement.appendChild(optionElement);
+    
   });
   document.body.appendChild(selectElement);
-  const imgElement = document.createElement('img');
-  document.body.appendChild(imgElement);
   selectElement.addEventListener('change', fetchImage);
-  fetchImage();
+  });
+  document.body.appendChild(buttonElement);
 }
 
 async function fetchImage() {
@@ -57,9 +59,10 @@ async function fetchImage() {
   const pokemonURL = selectedPokemon.options[selectedPokemon.selectedIndex].value;
   try {
         const newJsonData = await fetchData(pokemonURL);
-        const imgElement = document.querySelector('img');
+        const imgElement = document.createElement('img');
         imgElement.src = newJsonData.sprites.front_default;
         imgElement.alt = newJsonData.name;
+        document.body.appendChild(imgElement);
   }
   catch(error) {
     console.log(error);
@@ -67,7 +70,7 @@ async function fetchImage() {
 }
 
 function main() {
-  fetchData('https://pokeapi.co/api/v2/pokemon/?limit=151');
+  fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon/?limit=151');
 }
 
 window.addEventListener('load', main);

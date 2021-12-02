@@ -18,20 +18,21 @@ async function rollTheDices() {
   const dicePromises = dices.map((dice) => {
     return rollDice(dice);
   });
-  try {
+
     const raceValue = await Promise.race(dicePromises);
-    console.log('Resolved!', raceValue);
     return raceValue;
-  }
-  catch(error) {
-    throw new Error('Rejected!', error.message);
-  }
   
 }
 
 // Refactor this function to use async/await and try/catch
-function main() {
-  rollTheDices();
+async function main() {
+  const raceValue = await rollTheDices();
+  try {
+    console.log('Resolved!', raceValue);
+  }
+  catch(error) {
+    throw new Error('Rejected!', error.message);
+  }
 }
 
 main();

@@ -14,20 +14,20 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 
 async function rollDiceUntil(wantedValue) {
   let value = '';
-  try {
-        while (value !== wantedValue) {
-          value = await rollDice();
-          console.log('Resolved!', value);
-        }
-        return value;
+  while (value !== wantedValue) {
+    value = await rollDice();
+  }
+  return value;
+}
+
+async function main() {
+  const value = await rollDiceUntil('ACE').catch(error => console.log('Rejected!', error.message));
+  try{
+    console.log('Resolved!', value);
   }
   catch(error) {
     throw new Error('Rejected!', error.message);
   }
-}
-
-function main() {
-  rollDiceUntil('ACE');
 }
 
 main();
