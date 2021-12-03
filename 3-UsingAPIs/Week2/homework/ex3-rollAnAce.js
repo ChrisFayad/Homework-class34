@@ -17,16 +17,19 @@ async function rollDiceUntil(wantedValue) {
   while (value !== wantedValue) {
     value = await rollDice();
   }
-  return value;
+  if (value) {
+    return value;
+  }
+  throw new Error();
 }
 
 async function main() {
-  const value = await rollDiceUntil('ACE').catch(error => console.log('Rejected!', error.message));
-  try{
+  try {
+    const value = await rollDiceUntil('ACE');
     console.log('Resolved!', value);
   }
   catch(error) {
-    throw new Error('Rejected!', error.message);
+    console.log('Rejected!', error.message);
   }
 }
 
