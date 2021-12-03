@@ -34,35 +34,24 @@ async function fetchData(url) {
 }
 
 async function fetchAndPopulatePokemons(url) {
-  const buttonElement = document.createElement('button');
-  buttonElement.setAttribute('type', 	'button');
-  buttonElement.textContent = 'Get Pokemon!';
-  buttonElement.addEventListener('click', async () => {
   const jsonData = await fetchData(url);
-  const selectElement = document.createElement('select');
-  selectElement.id = 'pokemonList';
-  jsonData.results.forEach(pokemon => {
+  const selectElement = document.querySelector('select');
+  for (const pokemon of jsonData.results) {
     const optionElement = document.createElement('option');
     optionElement.value = pokemon.url;
     optionElement.textContent = pokemon.name;
     selectElement.appendChild(optionElement);
-    
-  });
-  document.body.appendChild(selectElement);
-  selectElement.addEventListener('change', fetchImage);
-  });
-  document.body.appendChild(buttonElement);
+  }
 }
 
 async function fetchImage() {
   const selectedPokemon = document.querySelector('#pokemonList');
   const pokemonURL = selectedPokemon.options[selectedPokemon.selectedIndex].value;
+  const imgElement = document.querySelector('img');
   try {
         const newJsonData = await fetchData(pokemonURL);
-        const imgElement = document.createElement('img');
         imgElement.src = newJsonData.sprites.front_default;
         imgElement.alt = newJsonData.name;
-        document.body.appendChild(imgElement);
   }
   catch(error) {
     console.log(error);
@@ -70,7 +59,20 @@ async function fetchImage() {
 }
 
 function main() {
-  fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon/?limit=151');
+  const buttonElement = document.createElement('button');
+  buttonElement.setAttribute('type', 'button');
+  buttonElement.textContent = 'Get Pokemon!';
+  document.body.appendChild(buttonElement);
+  buttonElement.addEventListener('click', () => {
+   fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon/?limit=151');
+   buttonElement.disabled = true;
+  });
+  const selectElement = document.createElement('select');
+  selectElement.id = 'pokemonList';
+  document.body.appendChild(selectElement);
+  selectElement.addEventListener('change', fetchImage);
+  const imgElement = document.createElement('img');
+  document.body.appendChild(imgElement);
 }
 
 window.addEventListener('load', main);
